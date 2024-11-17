@@ -1,0 +1,5 @@
+-ทำให้ jpa เชื่อมฐานข้อมูลมากกว่า 1 database
+-lombok
+-firebirdsql version 5.0.x
+-https://mmafrar.medium.com/configuring-multiple-data-sources-with-spring-boot-2-and-spring-data-jpa-8e236844e80f    ฝรั่ง
+-https://prosbeginner.medium.com/spring-boot-multiple-datasources-5e4a69d99773   //คนไทยสอนได้ดี
