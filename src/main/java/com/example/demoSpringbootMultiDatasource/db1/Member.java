@@ -31,33 +31,34 @@ import lombok.experimental.Accessors;
 public class Member {
 
 	//@Comment("xx") จากการทดสอบจะทำตอนสร้างตารางครั้งแรกเท่านั้น   11/11/67
+	//@Column name ให้ระวังตัวเล็กใหญ่ เช่่น firstName เพราะบาง database เช่น PostgreSQL นั้น case sensitive
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Comment("รหัสสมาชิก")
-	@Column(name = "id")
+	@Column(name = "id", nullable = false)
 	private Long id;
 
 	@Comment("ชื่อสมาชิก")
-	@Column(name = "firstName", length = 255)
+	@Column(name = "first_name", length = 255, nullable = false)
 	private String firstName;
 
 	@Comment("นามสกุลสมาชิก")
-	@Column(name = "lastName", length = 255)
+	@Column(name = "last_name", length = 255, nullable = false)
 	private String lastName;
 	
 	@Comment("เกรดสมาชิก เช่น A,B,C,D,E")
-	@Column(name = "memberGrade", length = 2)
+	@Column(name = "member_grade", length = 2, nullable = false)
 	private String memberGrade;
 
 	@Comment("วันที่เกิดสมาชิก")
-	@Column(name = "birthDate")
+	@Column(name = "birth_date")
 	@JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Bangkok")  //ให้แสดงในรุปแบบที่ต้องการตอนออกเป็น json
-	private java.sql.Date birthDate;
+	private java.time.LocalDate birthDate;
 	
 	@Comment("วันที่สร้างรายการ")
-	@Column(name = "createDate")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS", timezone = "Asia/Bangkok")  //ให้แสดงในรุปแบบที่ต้องการตอนออกเป็น json
-	private java.sql.Timestamp createDate;
+	@Column(name = "create_date", nullable = false)
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSSXXX")
+	private java.time.OffsetDateTime createDate;
 
 }

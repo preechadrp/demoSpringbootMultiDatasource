@@ -33,9 +33,9 @@ public class MemberRestController {
 					.setId(Long.valueOf(n))
 					.setFirstName("ธีภพ" + n)
 					.setLastName("ดรุณพันธ์" + n)
-					.setBirthDate(java.sql.Date.valueOf("1979-01-02"))
+					.setBirthDate(java.time.LocalDate.parse("1979-01-02"))
 					.setMemberGrade("A")
-					.setCreateDate(new java.sql.Timestamp(System.currentTimeMillis()));
+					.setCreateDate(java.time.OffsetDateTime.now());
 						
 			lstMember.add(m1);
 			
